@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Quiz</h1>
+            <div class="progress">
+                <span id="current-question">1</span> / <span id="total-questions">3</span>
+            </div>
+        </header>
+
+        <main>
+            <div id="quiz-container">
+                <div id="question-display">
+                    <h2 id="question-text">Loading questions...</h2>
+                </div>
+                
+                <div id="choices-container">
+                    <!-- Choice buttons will be dynamically generated here -->
+                </div>
+            </div>
+
+            <div id="result-container" style="display: none;">
+                <h2>Quiz Complete!</h2>
+                <div id="score-display">
+                    <p>Correct Answers: <span id="correct-answers">0</span> / <span id="total-answers">3</span></p>
+                    <p>Score: <span id="percentage">0</span>%</p>
+                </div>
+                <button id="restart-btn" class="btn">Try Again</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
