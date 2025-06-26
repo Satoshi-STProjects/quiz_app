@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Node.js（将来的にnpmなど使う場合）
+node_modules/
+
+# VS Code
+.vscode/
+
+# Cursorなどのログ（必要に応じて）
+_logs/
+
+# その他の不要ファイル
+*.log

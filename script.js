@@ -74,14 +74,26 @@ function selectAnswer(choiceIndex) {
     const correctIndex = quizData[currentQuestionIndex].correct;
     
     buttons.forEach((btn, index) => {
-        if (index === correctIndex) {
-            btn.classList.add('correct');
-        } else if (index === choiceIndex && index !== correctIndex) {
-            btn.classList.add('incorrect');
-        }
-        if (index === choiceIndex) {
-            btn.classList.add('selected');
-        }
+
+        const feedbackSpan = document.createElement('span');
+        feedbackSpan.classList.add('feedback')
+
+      if (index === choiceIndex && index === correctIndex) {
+        // Selected and correct
+        btn.classList.add('correct');
+        feedbackSpan.textContent = 'Correct!';
+        btn.appendChild(feedbackSpan);
+      } else if (index === choiceIndex && index !== correctIndex) {
+        // Selected and incorrect
+        btn.classList.add('incorrect');
+        feedbackSpan.textContent = 'Incorrect!';
+        btn.appendChild(feedbackSpan);
+      } else if (index === correctIndex) {
+        // Not selected but correct
+        btn.classList.add('correct');
+        feedbackSpan.textContent = 'Correct!';
+        btn.appendChild(feedbackSpan);
+      }
     });
     
     // Check if answer is correct
@@ -110,6 +122,10 @@ function nextQuestion() {
 // Display result
 function showResult() {
     const percentage = Math.round((score / quizData.length) * 100);
+
+    if (score === quizData.length) {
+        confetti();
+    }
     
     correctAnswersSpan.textContent = score;
     totalAnswersSpan.textContent = quizData.length;

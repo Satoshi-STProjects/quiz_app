@@ -45,3 +45,29 @@ It's a casual Dev Log-style record, not a polished tutorial.
 - JS reads top to bottom, but entry point (e.g., `DOMContentLoaded`) is often last.
 - Understanding call chain (e.g., `init → showQuestion → selectAnswer → nextQuestion`) helps trace logic.
 - It’s okay to loop through code multiple times to grasp structure.
+
+#6/27/25
+
+
+## 修正 / 機能追加による新たな学び
+
+### 選択肢の状態表示ロジック
+- `.selected` クラスが `.correct` / `.incorrect` より優先される場合があるため、UIが意図通りに反映されないことがある。
+- 条件分岐で「選択かつ正解」「選択かつ不正解」「未選択かつ正解」の3通りに明確に分けることで、期待どおりのスタイル適用が可能。
+
+### DOMへの要素追加 (`span`)
+- `createElement()` と `append()` を使って、JSでボタン内に `span` 要素を動的に追加可能。
+- ボタン内部の要素に `display: flex` を適用すると、テキストと `span` を左右に分けて配置できる（`justify-content: space-between` が有効）。
+
+### Flexboxによるボタン内配置調整
+- `align-items: center` を追加することで、縦方向の中央揃えが可能。
+- `.choice-btn` に適用することで、全ボタンに統一した見た目を適用できる。
+
+### 満点時のアニメーション演出
+- `canvas-confetti` ライブラリをCDNで読み込み、`confetti()` 関数で紙吹雪エフェクトを実装。
+- `Math.round((score / quizData.length) * 100)` で満点判定し、 `showResult()` 内でトリガーする。
+
+### その他補足
+- `<span>` 要素はインライン要素であり、テキストと同様に扱える。
+- `disabled` 属性を付与すると、ボタンなどのフォーム要素はクリック・フォーカスできなくなる。
+- `NodeList` は `querySelectorAll` の戻り値で、配列っぽく `forEach` 等で操作可能。

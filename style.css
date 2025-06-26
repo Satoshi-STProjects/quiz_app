@@ -69,6 +69,9 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .choice-btn:hover {
@@ -89,11 +92,7 @@ h1 {
     color: #721c24;
 }
 
-.choice-btn.selected {
-    background: #007bff;
-    border-color: #0056b3;
-    color: white;
-}
+
 
 .choice-btn:disabled {
     cursor: not-allowed;
