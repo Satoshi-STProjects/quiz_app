@@ -29,7 +29,7 @@ It's a casual Dev Log-style record, not a polished tutorial.
 
 ## JavaScript
 - `[]` = Array, `{}` = Object (like Python list and dict).
-- `const`: Immutable variable (can’t be reassigned).
+- `const`: Immutable variable (can't be reassigned).
 - `NodeList`: Array-like object returned by querySelectorAll.
 - `document.querySelectorAll(...)`: Selects multiple DOM elements.
 - `classList.add(...)` vs `className`: classList is preferred for modifying individual classes.
@@ -44,30 +44,30 @@ It's a casual Dev Log-style record, not a polished tutorial.
 ## General Tips
 - JS reads top to bottom, but entry point (e.g., `DOMContentLoaded`) is often last.
 - Understanding call chain (e.g., `init → showQuestion → selectAnswer → nextQuestion`) helps trace logic.
-- It’s okay to loop through code multiple times to grasp structure.
+- It's okay to loop through code multiple times to grasp structure.
 
 #6/27/25
 
 
-## 修正 / 機能追加による新たな学び
+## New Learnings from Fixes / Feature Additions
 
-### 選択肢の状態表示ロジック
-- `.selected` クラスが `.correct` / `.incorrect` より優先される場合があるため、UIが意図通りに反映されないことがある。
-- 条件分岐で「選択かつ正解」「選択かつ不正解」「未選択かつ正解」の3通りに明確に分けることで、期待どおりのスタイル適用が可能。
+### Logic for Displaying Choice States
+- The `.selected` class can sometimes take precedence over `.correct` / `.incorrect`, causing the UI to not reflect the intended state.
+- By clearly separating the conditions into three cases—"selected and correct," "selected and incorrect," and "not selected but correct"—you can apply the expected styles reliably.
 
-### DOMへの要素追加 (`span`)
-- `createElement()` と `append()` を使って、JSでボタン内に `span` 要素を動的に追加可能。
-- ボタン内部の要素に `display: flex` を適用すると、テキストと `span` を左右に分けて配置できる（`justify-content: space-between` が有効）。
+### Adding Elements to the DOM (`span`)
+- You can dynamically add a `span` element inside a button using `createElement()` and `append()` in JS.
+- Applying `display: flex` to the button allows you to place the text and `span` on opposite sides (`justify-content: space-between` is effective).
 
-### Flexboxによるボタン内配置調整
-- `align-items: center` を追加することで、縦方向の中央揃えが可能。
-- `.choice-btn` に適用することで、全ボタンに統一した見た目を適用できる。
+### Button Layout Adjustment with Flexbox
+- Adding `align-items: center` enables vertical centering.
+- Applying this to `.choice-btn` gives all buttons a consistent appearance.
 
-### 満点時のアニメーション演出
-- `canvas-confetti` ライブラリをCDNで読み込み、`confetti()` 関数で紙吹雪エフェクトを実装。
-- `Math.round((score / quizData.length) * 100)` で満点判定し、 `showResult()` 内でトリガーする。
+### Animation Effect for Perfect Score
+- Load the `canvas-confetti` library via CDN and use the `confetti()` function to implement a confetti effect.
+- Use `Math.round((score / quizData.length) * 100)` to check for a perfect score and trigger it inside `showResult()`.
 
-### その他補足
-- `<span>` 要素はインライン要素であり、テキストと同様に扱える。
-- `disabled` 属性を付与すると、ボタンなどのフォーム要素はクリック・フォーカスできなくなる。
-- `NodeList` は `querySelectorAll` の戻り値で、配列っぽく `forEach` 等で操作可能。
+### Other Notes
+- The `<span>` element is inline and can be treated like text.
+- Adding the `disabled` attribute makes form elements like buttons unclickable and unfocusable.
+- `NodeList` is the return value of `querySelectorAll` and can be manipulated like an array with methods such as `forEach`.
