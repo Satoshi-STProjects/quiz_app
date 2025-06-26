@@ -1,21 +1,28 @@
 # Quiz App
 
-This is a simple Quiz Application built for study purposes. The app allows users to answer multiple-choice questions and receive immediate feedback. It is designed to help practice JavaScript, HTML, and CSS skills in a practical project.
+A lightweight and interactive quiz application designed for learning and practicing frontend development. Built with vanilla JavaScript, HTML, and CSS.
 
 ## Features
+
 - Multiple-choice quiz questions
-- Instant feedback on answers
-- Simple and clean user interface
-- Built with vanilla JavaScript, HTML, and CSS
+- Instant feedback with visual cues
+- Score summary at the end
+- Responsive and user-friendly interface
 
 ## Purpose
-This application was created as a learning project to improve and demonstrate frontend development skills. It is not intended for commercial use, but rather as a personal exercise and educational resource.
+
+This app was created as a personal study project to strengthen JavaScript and DOM manipulation skills. It is not intended for commercial use but can serve as a starting point for other educational projects.
 
 ## How to Use
-1. Open `index.html` in your web browser.
-2. Start the quiz and select your answers.
-3. Get instant feedback and see your score at the end.
+
+1. Open `index.html` in your browser.
+2. Answer the questions by clicking on the choices.
+3. View immediate feedback and check your final score.
+
+## Live Demo
+
+[Click here to view the live demo](https://satoshi-stprojects.github.io/quiz_app/)
 
 ---
 
-Feel free to use or modify this project for your own study and practice! 
+Feel free to fork, modify, or use this project for your own learning!
